@@ -1,10 +1,11 @@
 <?php 
 
+    $nome=$_POST['nome'];
     $arquivo = $_FILES["arquivo"];
     $mensagem = "é necessario que o arquivo seja um png";
     if($arquivo["type"] == "image/png")
     {
-        $novo_endereco = "../images/" . $arquivo["name"];
+        $novo_endereco = "../images/" . $nome;
         $mensagem= "arquivo enviado";
         
         move_uploaded_file($arquivo["tmp_name"], $novo_endereco);
@@ -14,4 +15,4 @@
     }
     echo json_encode(["mensagem" => $mensagem]);
   
-?>
+?>  
